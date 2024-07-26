@@ -33,9 +33,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     private JwtRequestFilter jwtRequestFilter;
 
     private static final String[] AUTH_WHITELIST = {
-        "/**",
         "/h2-ui/*",
-        "/users",
         "/auth",
         // -- Swagger UI v2
         "/v2/api-docs",
@@ -69,15 +67,18 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity httpSecurity) throws Exception {
-        httpSecurity.csrf().disable()
-                .authorizeRequests().antMatchers(AUTH_WHITELIST).permitAll()
-                .anyRequest().authenticated()
-                .and().exceptionHandling()
+        httpSecurity.authorizeRequests()
+                .antMatchers("/h2-ui/**").permitAll();
+        httpSecurity.csrf().disable();
+        httpSecurity.headers().frameOptions().disable();
+
+        httpSecurity.csrf().disable().authorizeRequests().antMatchers(AUTH_WHITELIST).permitAll()
+                .anyRequest().authenticated().and().exceptionHandling()
                 .authenticationEntryPoint(unauthorizedHandler)
-                .and().sessionManagement()
-                .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+                .and().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and().cors()
                 .and().addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class);
+                .build();
     }
 
     @Bean
