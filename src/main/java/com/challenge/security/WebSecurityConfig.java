@@ -33,9 +33,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     private JwtRequestFilter jwtRequestFilter;
 
     private static final String[] AUTH_WHITELIST = {
-        "/**",
         "/h2-ui/*",
-        "/users",
         "/auth",
         // -- Swagger UI v2
         "/v2/api-docs",
