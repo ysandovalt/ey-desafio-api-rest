@@ -1,5 +1,5 @@
 # ey-desafio-api-rest
-API RESTful creación de usuarios Springboot - H2 - JWT
+API RESTful creación de usuarios - H2 - JWT
 ### Reference Documentation
 Proyecto Gradle springframework.boot' version 2.7.14
 Java 8
