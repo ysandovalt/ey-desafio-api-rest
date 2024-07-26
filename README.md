@@ -6,4 +6,6 @@ Java 8
 Base de Datos : H2
 ### Configuración
 
-Swagger endpoint http://localhost:8080/swagger-ui/index.html#/ 
+Swagger endpoint http://localhost:8080/swagger-ui/index.html#/ <br>
+*usuario: ysandovalt@gmail.com <br>
+*password:12345 <br>
