@@ -7,5 +7,8 @@ Base de Datos : H2
 ### Configuración
 
 Swagger endpoint http://localhost:8080/swagger-ui/index.html#/ <br>
-*usuario: ysandovalt@gmail.com <br>
-*password:12345 <br>
+#
+H2: spring.datasource.url=jdbc:h2:file:userdb <br>
+usuario: ysandovalt@gmail.com <br>
+password:12345 <br>
+script: data.sql <br>
