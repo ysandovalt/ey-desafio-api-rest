@@ -39,15 +39,15 @@ public class UserController extends BaseController {
     @Secured({"ADMIN"})
     public ResponseEntity<ApiResult<UserCreateResponse>> create(@Valid @RequestBody UserCreateRequest request) {
         UserCreateResponse data = userService.create(request);
-        return new ResponseEntity(data, HttpStatus.CREATED);
-     }
+        return handleResponse(data, HttpStatus.CREATED);
+    }
 
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
     @Secured({"ADMIN"})
     public ResponseEntity<ApiResult<List<UserListResponse>>> getAll() {
         List<UserListResponse> usuarios = userService.getAll();
-        return new ResponseEntity(usuarios, HttpStatus.OK);
+        return handleResponse(usuarios, HttpStatus.OK);
     }
 
     @GetMapping("/{id}")
@@ -55,21 +55,21 @@ public class UserController extends BaseController {
     @Secured({"ADMIN"})
     public ResponseEntity<ApiResult<List<UserListResponse>>> getOne(@PathVariable("id") String email) {
         List<UserListResponse> usuarios = userService.getOne(email);
-        return new ResponseEntity(usuarios, HttpStatus.OK);
+        return handleResponse(usuarios, HttpStatus.OK);
     }
-    
+
     @PutMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
     @Secured({"ADMIN"})
     public ResponseEntity<ApiResult<UserCreateResponse>> modify(@PathVariable("id") String email, @RequestBody UserUpdateRequest request) {
-        return new ResponseEntity(userService.modify(email, request), HttpStatus.OK);
-    }  
-    
+        return handleResponse(userService.modify(email, request), HttpStatus.OK);
+    }
+
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
     @Secured({"ADMIN"})
     public ResponseEntity delete(@PathVariable("id") String email) {
         userService.delete(email);
-        return new ResponseEntity(HttpStatus.OK);
-    }    
+        return handleResponse(HttpStatus.OK);
+    }
 }

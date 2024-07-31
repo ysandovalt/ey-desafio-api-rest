@@ -42,7 +42,6 @@ public class UserServiceImpl implements IUserService {
 
     @Override
     public UserCreateResponse create(UserCreateRequest request) throws ValidationException {
-        log.info("Creacion de Usuario");
         String emailPattern = "^\\w+([-+.']\\w+)*@\\w+([-.]\\w+)*\\.\\w{2,}([-.]\\w+)*$";
         if (!request.getEmail().matches(emailPattern)) {
             log.error("Formato Email incorrecto {}", request.getEmail());

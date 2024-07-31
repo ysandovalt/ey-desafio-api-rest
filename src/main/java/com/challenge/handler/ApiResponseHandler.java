@@ -12,7 +12,7 @@ import org.springframework.http.ResponseEntity;
 public class ApiResponseHandler<T> {
 
     public ResponseEntity<ApiResult<T>> handleResponse(T payload, HttpStatus status) {
-        return new ResponseEntity(new ApiResult(payload), status);
+        return new ResponseEntity<>(new ApiResult<>(payload), status);
     }
 
     public ResponseEntity<ApiResult<T>> handleResponse(T payload) {
