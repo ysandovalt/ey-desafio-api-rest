@@ -1,6 +1,4 @@
 # API RESTful creación de usuarios - H2 - JWT  <br>
-
-### Reference
 Proyecto Gradle springframework.boot version 2.7.14  <br>
 Java 8 - Base de Datos H2 <br>
 #
@@ -13,5 +11,5 @@ script BD en            data.sql <br>
 #
 Usuario Inicial para autenticación <br>
 usuario: admin@gmail.com <br>
-password:12345 <br>
+password:12345 
 
